@@ -1,0 +1,28 @@
+{% include 'top.html'%}
+<section>
+<div align="center">
+<h1> 목록보기 </h1>
+    {{ students }}
+    <hr>
+<table border="1">
+<tr><td>ID(P.K)</td>
+<td>학번</td><td>이름</td><td>학과</td><td>학년</td><td>과목코드</td><td>점수</td>
+<td>중간</td><td>기말</td></tr>
+
+{% for m in li %}
+   <tr>
+   <td align="center"> {{ m.id }}</td>
+  <td align="center"> {{ m.sno }}</td>
+  <td align="center"> {{ m.sname }}  </td>
+   <td align="center"> {{ m.dept }}  </td>
+  <td align="center"> {{ m.year }}  </td>
+  <td align="center"> {{ m.cno }} </td>
+       <td align="center"> {{ m.grade }} </td>
+       <td align="center"> {{ m.midterm }} </td>
+       <td align="center"> {{ m.gimal }} </td>
+</tr>
+{% endfor %}
+</table>
+</div>
+</section>
+{% include 'bottom.html'%}

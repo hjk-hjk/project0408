@@ -1,0 +1,20 @@
+{% include 'top.html'%}
+<section>
+<div align="center">
+<table border="1" width="500">
+<tr><td align="center">ID(P.K)</td><td align="center">중간</td><td align="center">기말</td>
+
+</tr>
+
+{% for m in li %}
+   <tr>
+   <td align="center"> {{ m.id }}</td>
+       <td align="center"> {{ m.midterm }}</td>
+       <td align="center"> {{ m.gimal }}</td>
+
+</tr>
+{% endfor %}
+</table>
+</div>
+</section>
+{% include 'bottom.html'%}

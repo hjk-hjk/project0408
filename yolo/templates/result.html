@@ -1,0 +1,21 @@
+{% include  'top.html' %}
+<div align="center">
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input type="file" name="file">
+    <input type="submit" value="보내기">
+</form>
+ <hr/>
+<h2>이미지 분석 결과</h2>
+  <table width="800" height="200">
+    <tr>
+      <td width="400">
+      <img src="/media/yolo/original/an44.PNG" width="390" height="200"></td>
+      <td width="400">
+      <img src="/media/yolo/result/result_image.PNG" width="390" height="200"></td>
+
+    </tr>
+
+    </table>
+</div>
+{% include  'bottom.html' %}

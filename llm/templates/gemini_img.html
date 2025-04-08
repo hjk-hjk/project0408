@@ -1,0 +1,73 @@
+{% load  static %}
+{% include  'top.html' %}
+
+<div align="center">
+<h1> 이미지 분석 하기   </h1>
+ <form method="post" enctype="multipart/form-data">
+ {% csrf_token %}
+ <table  border="1" width="700">
+ <tr><td>작성자</td><td><input  type="text"  name="name" ></td></tr>
+ <tr><td>설명</td><td><input  type="text"  name="explain"  size = 40 ></td></tr>
+ <tr><td>이미지</td><td><input  type="file"  name="file" ></td></tr>
+ <tr><td colspan="2" align="center"> <button type="submit">이미지 분석</button></td></tr>
+ </table>
+ </form>
+{{img_name}}
+ <hr>
+
+    {% if result %}
+        <h2>Analysis Result:</h2>
+    <textarea cols="80"  rows = "12" >
+        {{ result }}
+    </textarea>
+    {%endif%}
+    <table  border="1" width="700">
+        <tr><td>번호</td><td>작성자</td><td>설명</td><td>파일명1</td><td>이미지1</td>
+            <td>파일명2</td><td>이미지2</td><td>날짜(삭제)</td>
+{% for llm in results %}
+   <tr>
+  <td>{{ llm.id }}</td>
+  <td> {{ llm.explain }}  </td>
+  <td> {{ llm.aiexplain }}  </td>
+  <td> {{ llm.filename }}</td>
+   <td align="center"> <img src="{% static 'img/'|add:llm.filename %}"  width="20" height="20" ></td>
+<td align="center"> {{ llm.file }}</td>
+<td align="center"> <img src="{{ llm.file.url }}" width="20" height="20"></td>
+<td align="center"> <a href="{% url 'gemini_delete' llm.pk %}">
+    {{ llm.today|date:"Y년 m월 d일 H:i:s" }}</a>
+</td>
+{% endfor %}
+    </table>
+
+
+    <br> <br>
+{% if img_name %}
+    <img src="{% static 'img/'|add:img_name %}">
+{% else %}
+    <img src="{% static 'img/jjini.PNG' %}">
+{% endif %}
+
+<script>
+    document.getElementById("geminiForm").onsubmit = function(event){
+        var fileInput = document.getElementById("fileInput");
+        var name = document.getElementById("name");
+        var explain = document.getElementById("explain");
+        if (!fileInput.files.length) {
+            alert("파일을 첨부해 주세요")
+            event.preventDefault();
+        }
+        if (!name.files.length) {
+            alert("이름을 첨부해 주세요")
+            event.preventDefault();
+        }
+        if(!explain.value.trim()){
+            alert("설명을 추가해 주세요")
+            event.preventDefault();
+        }
+
+    }
+
+</script>
+</div>
+
+{% include  'bottom.html' %}

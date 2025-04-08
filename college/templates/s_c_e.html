@@ -1,0 +1,21 @@
+{% include 'top.html'%}
+<section>
+<div align="center">
+<table border="1" width="500">
+<tr><td align="center">ID(P.K)</td><td align="center">SSNO</td><td align="center">ESNO</td>
+    <td align="center">CCNO</td><td align="center">ECNO</td>
+</tr>
+
+{% for m in li %}
+   <tr>
+   <td align="center"> {{ m.id }}</td>
+       <td align="center"> {{ m.ssno }}</td>
+       <td align="center"> {{ m.esno }}</td>
+        <td align="center"> {{ m.ccno }}</td>
+       <td align="center"> {{ m.ecno }}</td>
+</tr>
+{% endfor %}
+</table>
+</div>
+</section>
+{% include 'bottom.html'%}

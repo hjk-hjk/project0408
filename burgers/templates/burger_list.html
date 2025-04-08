@@ -1,0 +1,30 @@
+{% include 'top.html'%}
+<section>
+<div align="center">
+<h1>파이버거 목록보기 </h1>
+    {{ burgers }}
+    <hr>
+<table border="1">
+<tr>
+<td>번호</td><td>이름</td><td>가격</td><td>칼로리(삭제)</td></tr>
+
+{% for burger in burgers %}
+   <tr>
+  <td>
+      <a href="{% url 'burger_edit' burger.pk %}">
+      {{ burger.id }}
+      </a>
+  </td>
+  <td> {{ burger.name }}  </td>
+  <td> {{ burger.price }}  </td>
+  <td>
+      <a href="{% url 'burger_delete' burger.pk %}">
+      {{ burger.calories }}
+      </a>
+  </td>
+</tr>
+{% endfor %}
+</table>
+</div>
+</section>
+{% include 'bottom.html'%}

@@ -1,0 +1,17 @@
+{% include 'top.html'%}
+<div align="center">
+<form method="POST">
+  {%csrf_token%}
+<table border="1">
+
+  <tr><td>학번</td><td><input type="text" name="sno"></td></tr>
+  <tr><td>이름</td><td><input type="text" name="sname"></td></tr>
+  <tr><td>학년</td><td><input type="text" name="year"></td></tr>
+  <tr><td>학과</td><td><input type="text" name="dept"></td></tr>
+  <tr><td align="center" colspan="2"><input type="submit" value="저장하기"></td></tr>
+
+</table>
+</form>
+</div>
+
+{% include 'bottom.html'%}

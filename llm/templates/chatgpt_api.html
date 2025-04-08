@@ -1,0 +1,20 @@
+{% include  'top.html' %}
+<div align="center">
+<form method="post">
+   {% csrf_token %}
+   <h2> ChatGPT </h2>
+ <table border="1">
+   <tr><td>질문</td></tr>
+   <tr>
+   <td> <input  type="text" name="question" size="45" >
+        <input type="submit" value="질문하기">
+   </td>
+   </tr>
+   <tr><td> 답변 : {{ question }} </td> </tr>
+   <tr><td> <textarea cols =60  rows="7"> {{ result }} </textarea>   </td> </tr>
+   </table>
+
+
+</form>
+</div>
+{% include  'bottom.html' %}

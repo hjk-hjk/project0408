@@ -1,0 +1,41 @@
+{% include 'top.html'%}
+<style>
+    a {
+    text_decoration: none;
+    color:#000000
+    }
+    a:hover {
+    text_decoration: underline;
+    color:#000000
+    }
+</style>
+<section>
+<div align="center">
+  <br>
+<h1>게시판 목록보기 </h1>
+
+<table border="1">
+<tr>
+<td>번호</td><td align="center">제목</td><td>작성자</td><td align="center">날짜(삭제)</td></tr>
+
+{% for board in boards %}
+   <tr>
+       <td align="center">{{board.id}}</td>
+      <td>
+      <a href="{% url 'board_edit' board.pk %}">
+      {{ board.title}}
+      </a>
+  </td>
+  <td> {{ board.name }}  </td>
+
+  <td align="center">
+      <a href="{% url 'board_delete' board.pk %}">
+      {{ board.today|date:"Y년 m월 d일 H:i:s" }}
+      </a>
+  </td>
+</tr>
+{% endfor %}
+</table>
+</div>
+</section>
+{% include 'bottom.html'%}

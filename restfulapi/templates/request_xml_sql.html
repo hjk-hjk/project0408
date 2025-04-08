@@ -1,0 +1,23 @@
+{% include 'top.html'%}
+
+<div align="center">
+<h1>전체학생수: {{record_count}}</h1>
+        <hr>
+<table border="1">
+<tr>
+<td>학번</td><td>이름</td><td>학년</td><td>학과</td></tr>
+
+{% for m in results %}
+   <tr>
+
+  <td align="center"> {{ m.sno }}</td>
+  <td align="center"> {{ m.sname }}  </td>
+  <td align="center"> {{ m.year }}  </td>
+  <td align="center"> {{ m.dept }} </td>
+
+</tr>
+{% endfor %}
+</table>
+</div>
+
+{% include 'bottom.html'%}

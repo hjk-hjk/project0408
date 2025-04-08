@@ -1,0 +1,31 @@
+{% load static%}
+{% include 'top.html'%}
+<section>
+<div align="center">
+  <br>
+<h1>파이버거 검색하기 </h1>
+ <form method="get">
+   <input type="text" name="keyword">
+   <button type="submit">검색하기</button>
+
+ </form>
+    <hr>
+<table border="1">
+<tr>
+<td>번호</td><td>이름</td><td>가격</td><td>칼로리</td></tr>
+
+{% for burger in burgers %}
+   <tr>
+  <td> {{ burger.id }}  </td>
+  <td> {{ burger.name }}  </td>
+  <td> {{ burger.price }}  </td>
+  <td> {{ burger.calories }} </td>
+</tr>
+{% endfor %}
+</table>
+     <img src="{% static 'img/ham.PNG'%}"
+         alt="햄버거 이미지">
+
+</div>
+</section>
+{% include 'bottom.html'%}

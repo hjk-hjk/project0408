@@ -1,0 +1,32 @@
+{% include  'top.html' %}
+<div align="center">
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input type="file" name="file">
+    <input type="submit" value="보내기">
+
+</form>
+    <hr />
+
+   <h2> ChatGPT </h2>
+<textarea cols="80" rows="20">
+    {{result}}
+</textarea>
+    <br>
+
+</div>
+  <table  border="1" width="900" align="center">
+        <tr align="center"><td>번호</td><td>작성자</td><td>파일명1</td><td>이미지1</td>
+            <td>날짜(삭제)</td>
+{% for m in li %}
+   <tr>
+  <td>{{ m.id }}</td>
+  <td> {{ m.name }}  </td>
+  <td> {{m.file }}</td>
+  <td align="center"> <img src="{{ m.file.url }}" width="20" height="20"></td>
+  <td align="center">
+    {{ m.today|date:"Y년 m월 d일 H:i:s" }}</a>
+    </td>
+{% endfor %}
+    </table>
+{% include  'bottom.html' %}

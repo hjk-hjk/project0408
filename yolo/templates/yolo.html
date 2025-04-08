@@ -1,0 +1,34 @@
+{% load  static %}
+{% include  'top.html' %}
+<div align="center" >
+
+   <form method="post" enctype="multipart/form-data">
+   {% csrf_token %}
+   <input  type="file" name="file">
+   <input  type="submit"  value="보내기">
+   </form>
+
+  <hr />
+ <div align="center">
+ {% if original %}
+ <h2>이미지 분석 결과</h2>
+ <table width="800"  height="400" >
+ <tr>
+     <td width="400">
+     <img src="/media/{{original}}"
+      width="390" height="390">
+     </td>
+     <td width="400">
+      <img src="/media/{{result}}"
+      width="390" height="390"> <br>
+
+     </td>
+ </tr>
+ </table>
+           안전모 착용 인원 : {{ count }}
+ {% endif %}
+ </div>
+  <br>
+</div>
+
+{% include  'bottom.html' %}

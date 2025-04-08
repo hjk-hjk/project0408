@@ -1,0 +1,25 @@
+{% include 'top.html'%}
+<div align="center">
+<form method="POST">
+  {%csrf_token%}
+<table border="1">
+
+  <tr><td>성별</td><td><input type="text" name="mf"></td></tr>
+  <tr><td>나이</td><td><input type="text" name="age"></td></tr>
+  <tr><td>관심분야</td><td><input type="text" name="inter"></td></tr>
+  <tr><td>추천수</td><td><input type="text" name="best"></td></tr>
+    <tr><td>현재 보유종목</td><td><input type="text" name="bb"></td></tr>
+  <tr><td align="center" colspan="2"><input type="submit" value="종목추천"></td></tr>
+
+</table>
+</form>
+    <hr>
+    {% if context != "" %}
+    <textarea cols="100" rows="30">
+    {{result}}
+    </textarea>
+    {% endif %}
+
+</div>
+
+{% include 'bottom.html'%}

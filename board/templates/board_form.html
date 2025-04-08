@@ -1,0 +1,20 @@
+{% include  'top.html' %}
+<div align="center">
+<h2> 게시판 글 등록하기  </h2>
+<form method="POST">
+{% csrf_token %}
+  <table border="1" >
+  <!-- views.py 에서 form 을 가져 온다. -->
+  {% for field   in  form %}
+  <tr>
+   <td> {{ field.label }} </td>
+   <td>  {{ field  }} </td>
+  </tr>
+  {% endfor %}
+  <tr><td colspan="2" align="center" >
+    <button type="submit" > 저장하기 </button>
+  </td></tr>
+  </table>
+</form>
+</div>
+{% include  'bottom.html' %}
